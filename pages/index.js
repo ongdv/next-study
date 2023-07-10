@@ -13,17 +13,18 @@ export default function Home() {
   useEffect(() => {
     (async () => {
       // const url = 'https://api.themoviedb.org/3/movie/popular';
-      const url = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
+      const url = '/api/movies';
       
-      const options = {
-        method: 'GET',
-        headers: {
-          accept: 'application/json',
-          Authorization: `Bearer ${AUTH_KEY}`
-        }
-      };
+      // const options = {
+      //   method: 'GET',
+      //   headers: {
+      //     accept: 'application/json',
+      //     Authorization: `Bearer ${AUTH_KEY}`
+      //   }
+      // };
 
-      const {results} = await (await fetch(url, options)).json();
+      // const {results} = await (await fetch(url, options)).json();
+      const {results} = await (await fetch(url)).json();
       setMovies(results);
     })()
   
