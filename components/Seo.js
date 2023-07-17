@@ -1,9 +1,10 @@
 import Head from "next/head";
 
-export default function Seo({ title = "Home" }) {
+export default function Seo({ title }) {
+  const titleMessage = `${title} | Next Moivies`
   return (
     <Head>
-      <title>{title} | Next Moivies</title>
+      <title>{titleMessage}</title>
     </Head>
   );
 }
