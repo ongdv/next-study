@@ -9,7 +9,6 @@ export default function App({ Component, pageProps }) {
     <Layout>
       {/* <NavBar /> */}
       <Component {...pageProps} />
-      <span>Hello</span>
     </Layout>
   );
 }

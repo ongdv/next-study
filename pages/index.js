@@ -2,12 +2,18 @@
 // _app.js에서 import 해야함
 // import '../styles/globals.css'
 import Seo from "@/components/Seo";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 const AUTH_KEY = process.env.AUTH_KEY;
 export default function Home({results}) {
 /* Router */
+const router = useRouter();
 /* State */
 /* Functions */
+const onClick = (id, title) => {
+  // URL Masking
+  router.push(`/movies/${title}/${id}/`);
+}
 /* Hooks */
 /* Render */
   return (
@@ -16,7 +22,7 @@ export default function Home({results}) {
       {!results && <h4>Loading...</h4>}
       {results?.map((movie) => {
         return (
-          <div className="movie" key={movie.id}>
+          <div className="movie" key={movie.id} onClick={() => onClick(movie.id, movie.original_title)}>
             <img
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               alt={movie.id}
