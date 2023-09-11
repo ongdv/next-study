@@ -19,9 +19,12 @@ export function Control() {
           <li>
             <button
               onClick={async () => {
-                const resp = await fetch(`http://localhost:9999/topics/${id}`, {
-                  method: 'DELETE',
-                });
+                const resp = await fetch(
+                  `${process.env.NEXT_PUBLIC_API_URL}/topics/${id}`,
+                  {
+                    method: 'DELETE',
+                  }
+                );
                 await resp.json();
                 router.push('/');
                 router.refresh();
